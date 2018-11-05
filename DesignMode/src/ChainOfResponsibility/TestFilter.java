@@ -13,9 +13,14 @@ public class TestFilter {
 		String msg = "今天天气不好，不想学习，想写<script>，:)";
 		Process p = new Process();
 		p.add(new SenstiveFilter());
-		p.add(new SmileFilter());
-		String res = p.doProcess(msg);
-		System.out.println(res);
+		p.add(new ScriptFilter());
+		Request request = new Request();
+		Reponse reponse = new Reponse();
+		request.setRequest(msg);
+		reponse.setReponse("process");
+		p.doFilter(request, reponse,p);
+		System.out.println(request.getRequest());
+		System.out.println(reponse.getReponse());
 	}
 
 }

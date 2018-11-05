@@ -8,5 +8,5 @@ package ChainOfResponsibility;
  * @version V1.0
  */
 public interface Filter {
-	public String doFilter(String str);
+	public void doFilter(Request request,Reponse reponse,Process process);
 }

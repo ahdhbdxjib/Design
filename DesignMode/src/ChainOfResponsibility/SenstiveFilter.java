@@ -8,10 +8,11 @@ package ChainOfResponsibility;
 * @version V1.0   
 */
 public class SenstiveFilter implements Filter {
-
 	@Override
-	public String doFilter(String str) {
-		return str.replaceAll("不想学习","爱学习");
+	public void doFilter(Request request, Reponse reponse,Process process) {
+		request.request = request.request.replaceAll("不想学习","爱学习").concat("----》SenstiveFilter");
+		process.doFilter(request, reponse, process);
+		reponse.reponse = reponse.reponse.concat("----》SenstiveFilter");
 	}
 
 }

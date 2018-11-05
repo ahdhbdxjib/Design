@@ -10,8 +10,10 @@ package ChainOfResponsibility;
 public class ScriptFilter implements Filter {
 
 	@Override
-	public String doFilter(String str) {
-		return str.replaceAll("<","[").replaceAll(">", "]");
+	public void doFilter(Request request,Reponse reponse,Process process) {
+		 request.request = request.request.replaceAll("<","[").replaceAll(">", "]").concat("----¡·ScriptFilter");
+		 process.doFilter(request, reponse, process);
+		 reponse.reponse = reponse.reponse.concat("----¡·ScriptFilter");
 	}
 
 }
